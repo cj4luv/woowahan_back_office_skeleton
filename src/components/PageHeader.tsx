@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 import {
   Row,
   Col,
@@ -8,12 +8,12 @@ import {
   Icon,
   Input,
   PageHeader as Header
-} from "antd";
-import { IAuthentication } from "../store";
-import { Maybe } from "./Maybe";
+} from 'antd';
+import { IAuthentication } from '../store';
+import { Maybe } from './Maybe';
 
 const DEFAULT_PICTURE =
-  "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png";
+  'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png';
 
 interface IProps {
   picture?: string;
@@ -29,7 +29,12 @@ export const PageHeader: React.FC<IProps> = ({
   requestLogout,
   openNotificationCenter
 }) => {
-  const { name = "", picture = DEFAULT_PICTURE } = authentication;
+  let avatar;
+  if (authentication) {
+    const { picture = DEFAULT_PICTURE } = authentication;
+    avatar = picture;
+  }
+
   const [activeSearch, toggleSearch] = React.useState(false);
 
   return (
@@ -39,7 +44,7 @@ export const PageHeader: React.FC<IProps> = ({
       style={{
         paddingTop: 5,
         paddingBottom: 10,
-        borderBottom: "1px solid #ddd"
+        borderBottom: '1px solid #ddd'
       }}
     >
       <Col style={{ flex: 1 }}>
@@ -59,7 +64,7 @@ export const PageHeader: React.FC<IProps> = ({
               <Button
                 onClick={() => toggleSearch(true)}
                 shape="circle"
-                style={{ border: "none" }}
+                style={{ border: 'none' }}
                 icon="search"
               />
             </Maybe>,
@@ -67,15 +72,15 @@ export const PageHeader: React.FC<IProps> = ({
               key="3"
               onClick={requestLogout}
               shape="circle"
-              style={{ border: "none" }}
+              style={{ border: 'none' }}
             >
-              <Avatar size="small" src={picture} />
+              <Avatar size="small" src={avatar} />
             </Button>,
             <Button
               key="4"
               onClick={openNotificationCenter}
               shape="circle"
-              style={{ border: "none" }}
+              style={{ border: 'none' }}
             >
               <Badge count={3} dot={true}>
                 <Icon type="bell" />

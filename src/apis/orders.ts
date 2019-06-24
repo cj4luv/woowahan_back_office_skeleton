@@ -17,10 +17,11 @@ export class ApiError implements IApiError {
   errorMessage: string = '';
 
   constructor(err: AxiosError) {
-    if ()
-    this.status = err.response.data.status;
-    this.statusCode = err.response.status;
-    this.errorMessage = err.response.data.errorMessage;
+    if (err.response) {
+      this.status = err.response.data.status;
+      this.statusCode = err.response.status;
+      this.errorMessage = err.response.data.errorMessage;
+    }
   }
 }
 
