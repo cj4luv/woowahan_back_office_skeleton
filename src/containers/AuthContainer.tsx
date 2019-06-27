@@ -1,9 +1,9 @@
-import * as React from "react";
-import { connect } from "react-redux";
-import { IStoreState } from "../store";
-import { requestLogout, openNotificationCenter } from "../actions";
+import * as React from 'react';
+import { connect } from 'react-redux';
+import { IStoreState } from '../store';
+import { requestLogout, openNotificationCenter } from '../actions';
 
-const AuthWrapper: React.FC = props => {
+const AuthWrapper: React.FC<any> = props => {
   const children = React.Children.map(
     props.children,
     (child: React.ReactElement, index: number) => {

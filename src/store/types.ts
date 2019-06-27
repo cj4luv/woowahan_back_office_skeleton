@@ -1,5 +1,5 @@
-export type NotificationType = "success" | "error" | "info";
-export type FinishType = "success" | "error";
+export type NotificationType = 'success' | 'error' | 'info';
+export type FinishType = 'success' | 'error';
 export type IGeoLocation = [number, number];
 
 export interface INotification {

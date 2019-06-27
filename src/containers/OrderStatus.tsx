@@ -1,7 +1,7 @@
-import * as React from "react";
-import { connect } from "react-redux";
-import { StoreState, ITimelineItem } from "../types";
-import { Maybe, Counter, MonitorCard, TinyChart } from "../components";
+import * as React from 'react';
+import { connect } from 'react-redux';
+import { IStoreState, ITimelineItem } from '../store/types';
+import { Maybe, Counter, MonitorCard, TinyChart } from '../components';
 
 export interface OrderStatusProps {
   showTimeline: boolean;
@@ -11,7 +11,7 @@ export interface OrderStatusProps {
   failureTimeline: ITimelineItem[];
 }
 
-const mapStateToProps = (state: StoreState) => {
+const mapStateToProps = (state: IStoreState) => {
   return {
     showTimeline: state.showTimeline,
     success: state.success,
@@ -26,7 +26,7 @@ class OrderStatus extends React.Component<OrderStatusProps> {
     errorRate: 0
   };
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps: { success: number; failure: number }) {
     if (
       prevProps.success !== this.props.success ||
       prevProps.failure !== this.props.failure

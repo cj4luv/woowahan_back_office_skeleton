@@ -1,6 +1,6 @@
 import * as React from "react";
 import { AreaChart, Area, ResponsiveContainer } from "recharts";
-import { ITimelineItem } from "../types";
+import { ITimelineItem } from "../store/types";
 
 interface IPros {
   source: ITimelineItem[];

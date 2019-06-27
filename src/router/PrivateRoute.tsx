@@ -1,12 +1,12 @@
-import * as React from "react";
-import { IStoreState, IAuthentication } from "../store";
+import * as React from 'react';
+import { IStoreState, IAuthentication } from '../store';
 import {
   Route,
   Redirect,
   RouteProps,
   RouteComponentProps
-} from "react-router-dom";
-import { connect } from "react-redux";
+} from 'react-router-dom';
+import { connect } from 'react-redux';
 
 type RoutePageComponent =
   | React.ComponentType<RouteComponentProps<any>>
@@ -17,7 +17,7 @@ interface IProps {
 }
 
 interface IStateToProps {
-  authentication: IAuthentication;
+  authentication: IAuthentication | null;
 }
 
 const mapStateToProps = (
@@ -42,7 +42,7 @@ const PrivateRouter: React.FC<IProps & IStateToProps & RouteProps> = props => {
           return (
             <Redirect
               to={{
-                pathname: "/login",
+                pathname: '/login',
                 state: { from: props.location }
               }}
             />

@@ -25,7 +25,7 @@ function* fetchOrderTimeline() {
 function* authenticationWorkflow() {
   while (true) {
     let auth = yield select(
-      (state: IStoreState): IAuthentication => state.authentication
+      (state: IStoreState): IAuthentication | null => state.authentication
     );
     let waitLogin = !auth;
 

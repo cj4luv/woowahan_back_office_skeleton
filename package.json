@@ -8,6 +8,7 @@
     "@types/lodash": "4.14.133",
     "@types/react-redux": "7.0.9",
     "@types/react-router-dom": "4.3.3",
+    "@types/recharts": "^1.1.17",
     "@types/styled-components": "4.1.15",
     "@types/uuid": "3.4.4",
     "antd": "3.18.2",

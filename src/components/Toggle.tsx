@@ -1,5 +1,5 @@
-import * as React from "react";
-import { Switch } from "antd";
+import * as React from 'react';
+import { Switch } from 'antd';
 
 interface ToggleProps {
   label: string;
@@ -17,9 +17,9 @@ export const Toggle: React.FC<ToggleProps> = props => {
       unCheckedChildren={props.label}
       onChange={checked => {
         if (checked) {
-          props.onOn();
+          props.onOn && props.onOn();
         } else {
-          props.onOff();
+          props.onOff && props.onOff();
         }
       }}
     />

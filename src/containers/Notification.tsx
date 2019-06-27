@@ -1,9 +1,9 @@
-import * as React from "react";
-import { Dispatch } from "redux";
-import { connect } from "react-redux";
-import { IStoreState, INotification } from "../store";
-import { showedNotification } from "../actions";
-import { notification } from "antd";
+import * as React from 'react';
+import { Dispatch } from 'redux';
+import { connect } from 'react-redux';
+import { IStoreState, INotification } from '../store';
+import { showedNotification } from '../actions';
+import { notification } from 'antd';
 
 interface IProps {
   notifications: INotification[];
@@ -17,11 +17,11 @@ const mapStateToProps = (state: IStoreState) => {
 };
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-  showedNotification: id => dispatch(showedNotification(id))
+  showedNotification: (id: number) => dispatch(showedNotification(id))
 });
 
 class Notification extends React.PureComponent<IProps> {
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps: { notifications: { length: number } }) {
     if (prevProps.notifications.length !== this.props.notifications.length) {
       this.props.notifications.forEach(noti => {
         notification.error({

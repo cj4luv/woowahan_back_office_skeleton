@@ -1,6 +1,6 @@
-import { ActionType, getType } from "typesafe-actions";
-import { IStoreState } from "../store";
-import * as Actions from "../actions";
+import { ActionType, getType } from 'typesafe-actions';
+import { IStoreState } from '../store';
+import * as Actions from '../actions';
 
 export const initializeState: IStoreState = {
   authentication: null,
@@ -111,8 +111,14 @@ export default (
       const { success, failure } = action.payload;
       return {
         ...state,
-        successTimeline: success.map(([time, count]) => ({ time, count })),
-        failureTimeline: failure.map(([time, count]) => ({ time, count }))
+        successTimeline: success.map(([time, count]: [string, number]) => ({
+          time,
+          count
+        })),
+        failureTimeline: failure.map(([time, count]: [string, number]) => ({
+          time,
+          count
+        }))
       };
     case getType(Actions.addNotification):
       return {

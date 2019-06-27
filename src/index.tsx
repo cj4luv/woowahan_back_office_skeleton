@@ -1,17 +1,17 @@
-import * as React from "react";
-import { render } from "react-dom";
-import { Provider } from "react-redux";
-import { createStore, applyMiddleware } from "redux";
-import { composeWithDevTools } from "redux-devtools-extension";
-import reducer, { initializeState } from "./reducers";
-import createSagaMiddleware from "redux-saga";
-import rootSaga from "./sagas";
-import App from "./router";
+import * as React from 'react';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import reducer, { initializeState } from './reducers';
+import createSagaMiddleware from 'redux-saga';
+import rootSaga from './sagas';
+import App from './router';
 
-import "./sass/main.scss";
-import "antd/dist/antd.css";
+import './sass/main.scss';
+import 'antd/dist/antd.css';
 
-const authenticationData = sessionStorage.getItem("authentication");
+const authenticationData = sessionStorage.getItem('authentication');
 
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(
@@ -24,7 +24,7 @@ const store = createStore(
     : initializeState,
   composeWithDevTools(applyMiddleware(sagaMiddleware))
 );
-const rootElement: HTMLElement = document.getElementById("root");
+const rootElement: any = document.getElementById('root');
 
 sagaMiddleware.run(rootSaga);
 
