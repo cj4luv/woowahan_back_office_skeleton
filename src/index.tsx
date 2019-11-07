@@ -29,7 +29,7 @@ const rootElement: any = document.getElementById('root');
 sagaMiddleware.run(rootSaga);
 
 render(
-  <Provider store={store}>
+  <Provider store={store as any}>
     <App />
   </Provider>,
   rootElement
